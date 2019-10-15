@@ -102,7 +102,7 @@ const ticketPriceTotal = runners.reduce(function(accumulator, currentValue) {
     return accumulator + currentValue.donation;
 }, 0);
 
-console.log(ticketPriceTotal);
+console.log('Testing ticketPriceTotal: ' + ticketPriceTotal);
 
 
 
@@ -110,7 +110,34 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// The Skinix company has requested special shirts with their personal logo, at their expense. A list of participants from this company is needed.
+
+const skinixRunners = runners.filter(function(currentValue) {
+    return currentValue.company_name === "Skinix";
+});
+
+console.log('Testing skinixRunners: ');
+console.log(skinixRunners);
+
+
 
 // Problem 2
+// The Skinix runners have offered to double their donations as thanks for their special shirts. How much are they donating now?
+
+const skinixDonations = skinixRunners.reduce(function(accumulator, currentValue) {
+    return accumulator + currentValue.donation;
+}, 0);
+
+console.log('Testing skinixDonations: ' + skinixDonations * 2);
+
+
 
 // Problem 3
+// The event coordinators would like to send emails to everyone thanking them for their specific donations. Create a list with everyones e-mail and donation for easy reference.
+let donationThanks = [];
+
+runners.forEach(function(element) {
+    donationThanks.push(`${element.email} ${element.donation}`);
+});
+
+console.log('Testing donationThanks: ' + donationThanks);

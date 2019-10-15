@@ -91,7 +91,18 @@ console.log('Testing multiplyNums: ' + multiplyNums(2, 3, multiply));
 function contains(item, list, cb) {
     // contains checks if an item is present inside of the given array/list.
     // Pass true to the callback if it is, otherwise pass false.
+    return cb(item, list);
 }
+
+function containsCheck(item, list) {
+    if (list.find(function(element) {
+            return element == item;
+        })) {
+        return true;
+    } else { return false; }
+}
+
+console.log('Testing contains: ' + contains('Pencil', items, containsCheck));
 
 
 

@@ -79,7 +79,12 @@ console.log('Testing sumNums: ' + sumNums(5, 2, add));
 
 function multiplyNums(x, y, cb) {
     // multiplyNums multiplies two numbers and passes the result to the callback.
+    return cb(x, y);
 }
+
+const multiply = (x, y) => { return x * y; }
+
+console.log('Testing multiplyNums: ' + multiplyNums(2, 3, multiply));
 
 
 
